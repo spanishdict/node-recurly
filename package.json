@@ -4,7 +4,7 @@
 , "version" : "2.0.2"
 , "homepage" : "https://github.com/robrighter/node-recurly"
 , "author" : "Rob Righter <robrighter@gmail.com> (http://github.com/robrighter)"
-, "contributors" : [ 
+, "contributors" : [
   "Iván Guardado <dev.ivangc@gmail.com> (http://github.com/IvanGuardado)",
   "Rob Righter <robrighter@gmail.com> (http://github.com/robrighter)"
   ]
@@ -13,8 +13,7 @@
 , "directories" : { "lib" : "./lib" }
 , "main" : "./lib/recurly.js"
 , "dependencies" : {
-    "xml2js": ">= 0.1.5",
-    "js2xml": ">= 0.0.2"
+    "xml2js": ">= 0.1.5"
 }
 , "engines" : { "node" : ">= 0.4" }
 }
