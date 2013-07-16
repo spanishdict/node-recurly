@@ -23,26 +23,105 @@ describe("Subscriptions", function() {
     it("should list subscriptions", function(done) {
       var expected = {
         subscriptions: {
+          "$": {
+            "type": "array"
+          },
           subscription: {
-            account: '',
+            "$": {
+              "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96"
+            },
+            account: {
+              "$": {
+                "href": "https://your-subdomain.recurly.com/v2/accounts/1"
+              }
+            },
             plan: {
+              "$": {
+                "href": "https://your-subdomain.recurly.com/v2/plans/gold"
+              },
               plan_code: 'gold',
               name: 'Gold plan'
             },
             uuid: '44f83d7cba354d5b84812419f923ea96',
             state: 'active',
-            unit_amount_in_cents: '800',
+            unit_amount_in_cents: {
+              "_": "800",
+              "$": {
+                "type": "integer"
+              }
+            },
             currency: 'EUR',
-            quantity: '1',
-            activated_at: '2011-05-27T07:00:00Z',
-            canceled_at: '',
-            expires_at: '',
-            current_period_started_at: '2011-06-27T07:00:00Z',
-            current_period_ends_at: '2010-07-27T07:00:00Z',
-            trial_started_at: '',
-            trial_ends_at: '',
-            subscription_add_ons: '\n    ',
-            a: [ '', '', '' ]
+            quantity: {
+              "_": "1",
+              "$": {
+                "type": "integer"
+              }
+            },
+            activated_at: {
+              "_": "2011-05-27T07:00:00Z",
+              "$": {
+                "type": "datetime"
+              }
+            },
+            canceled_at: {
+              "$": {
+                "nil":"nil"
+              }
+            },
+            expires_at: {
+              "$": {
+                "nil":"nil"
+              }
+            },
+            current_period_started_at: {
+              "_": '2011-06-27T07:00:00Z',
+              "$": {
+                "type": "datetime"
+              }
+            },
+            current_period_ends_at: {
+              "_": '2010-07-27T07:00:00Z',
+              "$": {
+                "type": "datetime"
+              }
+            },
+            trial_started_at: {
+              "$": {
+                "nil":"nil"
+              }
+            },
+            trial_ends_at: {
+              "$": {
+                "nil":"nil"
+              }
+            },
+            subscription_add_ons: {
+              "$": {
+                "type":"array"
+              }
+            },
+            a: [
+              {
+                "$": {
+                  "name": "cancel",
+                  "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96/cancel",
+                  "method": "put"
+                }
+              },
+              {
+                "$": {
+                  "name": "terminate",
+                  "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96/terminate",
+                  "method": "put"
+                }
+              },
+              {
+                "$": {
+                  "name": "postpone",
+                  "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96/postpone",
+                  "method": "put"
+                }
+              }]
           }
         }
       };
@@ -68,31 +147,100 @@ describe("update", function() {
     it("should list subscriptions", function(done) {
       var expected = {
         subscription: {
-          account: '',
+          "$": {
+            "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96"
+          },
+          account: {
+            "$": {
+              "href": "https://your-subdomain.recurly.com/v2/accounts/1"
+            }
+          },
           plan: {
+            "$": {
+              "href": "https://your-subdomain.recurly.com/v2/plans/gold"
+            },
             plan_code: 'gold',
             name: 'Gold plan'
           },
           uuid: '44f83d7cba354d5b84812419f923ea96',
           state: 'active',
-          unit_amount_in_cents: '800',
+          unit_amount_in_cents: {
+            "_":'800',
+            "$": {
+              "type": "integer"
+            }
+          },
           currency: 'EUR',
-          quantity: '1',
-          activated_at: '2011-05-27T07:00:00Z',
-          canceled_at: '',
-          expires_at: '',
-          current_period_started_at: '2011-06-27T07:00:00Z',
-          current_period_ends_at: '2010-07-27T07:00:00Z',
-          trial_started_at: '',
-          trial_ends_at: '',
+          quantity: {
+            "_":'1',
+            "$": {
+              "type": "integer"
+            }
+          },
+          activated_at: {
+            "_": '2011-05-27T07:00:00Z',
+            "$": {
+              "type": "datetime"
+            }
+          },
+          canceled_at: {
+            "$": {
+              "nil":"nil"
+            }
+          },
+          expires_at: {
+            "$": {
+              "nil":"nil"
+            }
+          },
+          current_period_started_at: {
+            "_": '2011-06-27T07:00:00Z',
+            "$": {
+              "type": "datetime"
+            }
+          },
+          current_period_ends_at: {
+            "_": '2010-07-27T07:00:00Z',
+            "$": {
+              "type": "datetime"
+            }
+          },
+          trial_started_at: {
+            "$": {
+              "nil":"nil"
+            }
+          },
+          trial_ends_at: {
+            "$": {
+              "nil":"nil"
+            }
+          },
           subscription_add_ons: {
+            "$": {
+                "type":"array"
+            },
             subscription_add_on: {
               add_on_code: 'ipaddresses',
               quantity: '10',
               unit_amount_in_cents: '150'
             }
           },
-          a: [ '', '']
+          a: [
+            {
+              "$": {
+                "name": "cancel",
+                "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96/cancel",
+                "method": "put"
+              }
+            },
+            {
+              "$": {
+                "name": "terminate",
+                "href": "https://your-subdomain.recurly.com/v2/subscriptions/44f83d7cba354d5b84812419f923ea96/terminate",
+                "method": "put"
+              }
+            }
+          ]
         }
       };
 
