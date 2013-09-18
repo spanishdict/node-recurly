@@ -6,7 +6,7 @@
     "e-commerce",
     "recurring billing"
   ],
-  "version": "2.0.2",
+  "version": "2.0.3",
   "homepage": "https://github.com/robrighter/node-recurly",
   "author": "Rob Righter <robrighter@gmail.com> (http://github.com/robrighter)",
   "repository": {
