@@ -44,4 +44,42 @@ describe("Js2Xml", function() {
 
     });
   });
+  describe("create account", function() {
+    var details = {
+      account_code: "1",
+      email: "verena@example.com",
+      first_name: "Verena",
+      last_name: "Example",
+      address: {
+        address1: "123 Main St.",
+        city: "San Francisco",
+        state: "CA",
+        zip: 94105,
+        country: "US"
+      }
+    };
+
+    var account = new Js2Xml('account', details).toString();
+
+    it("should create expected object", function() {
+      var expected = [
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+        "<account>",
+          "<account_code>1</account_code>",
+          "<email>verena@example.com</email>",
+          "<first_name>Verena</first_name>",
+          "<last_name>Example</last_name>",
+          "<address>",
+            "<address1>123 Main St.</address1>",
+            "<city>San Francisco</city>",
+            "<state>CA</state>",
+            "<zip>94105</zip>",
+            "<country>US</country>",
+          "</address>",
+        "</account>"].join("");
+
+      assert.equal(account, expected);
+
+    });
+  });
 });
