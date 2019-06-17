@@ -16,7 +16,7 @@ add a config file to your project that has contents similar to:
 		API_PASSWORD: 'secret',
 		PRIVATE_KEY:  'secret',
 		SUBDOMAIN:    '[your_account]',
-		VERSION:      '2',
+		API_VERSION:  '2.7',
 		DEBUG:        false
 	};
 
